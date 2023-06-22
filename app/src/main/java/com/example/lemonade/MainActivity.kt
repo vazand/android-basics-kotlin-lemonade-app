@@ -160,8 +160,30 @@ class MainActivity : AppCompatActivity() {
         //  drawable from the drawable resources. The drawables have the same names as the strings
         //  but remember that they are drawables, not strings.
         val textAction: TextView = findViewById(R.id.text_action)
+        when (lemonadeState) {
+            SELECT -> {
+                textAction.setText(R.string.lemon_select)
+                lemonImage?.setImageResource(R.drawable.lemon_tree)
+            }
 
-        textAction.text = when (lemonadeState) {
+            SQUEEZE -> {
+                textAction.setText(R.string.lemon_squeeze)
+                lemonImage?.setImageResource(R.drawable.lemon_squeeze)
+            }
+
+            DRINK -> {
+                textAction.setText(R.string.lemon_drink)
+                lemonImage?.setImageResource(R.drawable.lemon_drink)
+            }
+
+            RESTART -> {
+                textAction.setText(R.string.lemon_empty_glass)
+                lemonImage?.setImageResource(R.drawable.lemon_restart)
+            }
+
+        }
+
+/*        textAction.text = when (lemonadeState) {
             SELECT -> getString(R.string.lemon_select)
             SQUEEZE -> getString(R.string.lemon_squeeze)
             DRINK -> getString(R.string.lemon_drink)
@@ -175,7 +197,7 @@ class MainActivity : AppCompatActivity() {
             DRINK -> R.drawable.lemon_drink
             RESTART -> R.drawable.lemon_restart
             else -> 0
-        })
+        })*/
 
 
     }
@@ -211,63 +233,3 @@ class LemonTree {
 
 
 
-
-
-/*
-when (lemonadeState) {
-            SELECT -> {
-                SQUEEZE
-
-                lemonTree = LemonTree()
-                lemonSize = lemonTree.pick()
-                squeezeCount = 0
-
-
-            }
-
-            SQUEEZE -> {
-                //lemonImage?.setImageResource(R.drawable.lemon_squeeze)
-                squeezeCount += 1
-                lemonSize -= 1
-                if (lemonSize == 0) {
-                    DRINK
-                }
-            }
-
-            DRINK -> {
-                RESTART
-                lemonSize = -1
-            }
-
-            RESTART -> {
-                SELECT
-            }
-
-
-        }
- */
-
-/*
-when (lemonadeState) {
-            SELECT -> {
-                textAction.setText(R.string.lemon_select)
-                lemonImage?.setImageResource(R.drawable.lemon_tree)
-            }
-
-            SQUEEZE -> {
-                textAction.setText(R.string.lemon_squeeze)
-                lemonImage?.setImageResource(R.drawable.lemon_squeeze)
-            }
-
-            DRINK -> {
-                textAction.setText(R.string.lemon_drink)
-                lemonImage?.setImageResource(R.drawable.lemon_drink)
-            }
-
-            RESTART -> {
-                textAction.setText(R.string.lemon_empty_glass)
-                lemonImage?.setImageResource(R.drawable.lemon_restart)
-            }
-
-        }
- */
